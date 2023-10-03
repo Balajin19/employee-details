@@ -1,0 +1,44 @@
+table,
+tr,
+th,
+td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+table{
+    width: 500px;
+    text-align: center;
+}
+.details-table{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    padding-top: 20px;  
+}
+.edit-btn{
+    text-decoration: none;
+}
+.edit-btn:hover{
+    text-decoration: underline;
+}
+.delete-btn,.edit-btn{
+    color: blue;
+    cursor: pointer;
+}
+.delete-btn:hover{
+    text-decoration: underline;
+}
+.header{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap:20px;
+    width:90%;
+}
+table{
+    width: 90%;
+    margin-top: 20px;
+}

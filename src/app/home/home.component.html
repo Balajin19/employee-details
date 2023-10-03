@@ -1,0 +1,32 @@
+<div class="header">
+    <input type="text" class="form-control mr-sm-2 w-50 border border-primary" (input)="searchDetails($event)"placeholder="Search" aria-label="Search">
+    <button class="btn btn-primary" [routerLink]="['/form']">Add</button>
+</div>
+<div class="details-table">
+    <table *ngIf="employees?.length>0;else nodata" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Emp Id</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.empid}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.dob| date: 'dd-MM-yyyy'}}</td>
+                <td>{{employee.email}}</td>
+                <td><a [routerLink]="['/form',employee.empid]" class="edit-btn">Edit</a></td>
+                <td (click)="delete(employee)" class="delete-btn">Delete</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #nodata>
+    <h2>No data</h2>
+</ng-template>
+
+

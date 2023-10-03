@@ -1,0 +1,64 @@
+<!-- <div class="form" *ngIf="!employees;else editDetails">
+    <form (ngSubmit)="formSubmit(f)" #f="ngForm">
+        <label for="empid" ng>EMP ID</label>
+        <input type="text" id="empid" name="emp_id" ngModel required><br>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" ngModel required><br>
+        <label for="dob">DOB</label>
+        <input type="date" id="dob" name="dob" ngModel required><br>
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="email" ngModel required email><br>
+        <button type="submit" [disabled]="!f.valid">Submit</button>
+    </form> -->
+<div class="form" *ngIf="!employees;else editDetails">
+    <h2>ADD EMPLOYEE</h2>
+    <form (ngSubmit)="formSubmit(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="empid">Emp ID</label>
+            <input type="text" class="form-control mr-sm-2 border border-primary" id="empid" name="empid" placeholder="Enter emp ID" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control mr-sm-2 border border-primary" id="name" name="name" placeholder="Enter Name" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control mr-sm-2 border border-primary" id="dob" name="dob" placeholder="dd-mm-yyyy" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control mr-sm-2 border border-primary" id="email" name="email" placeholder="Enter Email" ngModel required
+                email>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </form>
+</div>
+<ng-template #editDetails>
+    <div class="form">
+        <h2>EDIT EMPLOYEE</h2>
+        <form (ngSubmit)="formSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="empid">Emp ID</label>
+                <input type="text" class="form-control mr-sm-2 border border-primary" id="empid" name="empid" placeholder="Enter emp ID"
+                    [(ngModel)]="employees.empid" required readonly>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control mr-sm-2 border border-primary" id="name" name="name" placeholder="Enter Name"
+                    [(ngModel)]="employees.name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control mr-sm-2 border border-primary" id="dob" name="dob" placeholder="dd-mm-yyyy"
+                    [(ngModel)]="employees.dob" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control mr-sm-2 border border-primary" id="email" name="email" placeholder="Enter Email"
+                    [(ngModel)]="employees.email" required email>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+        </form>
+
+    </div>
+</ng-template>
