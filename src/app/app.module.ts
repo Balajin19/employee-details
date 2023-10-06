@@ -8,7 +8,10 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects'
+import { DataEffects } from './store/data.effects';
+import { DataReducer } from './store/data.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    StoreModule.forRoot({ employeeDetails:DataReducer}),
+    EffectsModule.forRoot([DataEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

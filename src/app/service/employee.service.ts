@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environment/environment';
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,9 @@ import { environment } from 'src/environment/environment';
 export class EmployeeService
 {
   private URL = environment.apiURL;
-  constructor (private http: HttpClient) { }
+  id: any
+  constructor (private http: HttpClient, private route: ActivatedRoute)
+  { }
 
   getEmployees()
   {
@@ -21,13 +24,13 @@ export class EmployeeService
   {
     return this.http.post(this.URL + '/addEmployee', data);
   }
-  updateDetails(id: number, data: any)
+  updateDetails(id: any, data: any)
   {
     return this.http.patch(this.URL + '/updateEmployee/' + id, data)
   }
-  deleteDetail(data: any)
+  deleteDetail(id: any)
   {
-    return this.http.delete(this.URL + '/delete-employee/' + data._id)
+    return this.http.delete(this.URL + '/delete-employee/' + id)
 
   }
 }

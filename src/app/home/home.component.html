@@ -19,7 +19,7 @@
                 <td>{{employee.name}}</td>
                 <td>{{employee.dob| date: 'dd-MM-yyyy'}}</td>
                 <td>{{employee.email}}</td>
-                <td><a [routerLink]="['/form',employee.empid]" class="edit-btn">Edit</a></td>
+                <td><a (click)="edit(employee)" class="edit-btn">Edit</a></td>
                 <td (click)="delete(employee)" class="delete-btn">Delete</td>
             </tr>
         </tbody>
@@ -28,5 +28,3 @@
 <ng-template #nodata>
     <h2>No data</h2>
 </ng-template>
-
-
